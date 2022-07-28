@@ -1,0 +1,48 @@
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  /* Show it is fixed to the top */
+  body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+  }
+
+  ul.submenu {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    text-align: left;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    display: none;
+  }
+
+  ul.submenu li {
+    display: block;
+  }
+
+  ul.submenu li a {
+    display: block;
+    padding: 5px 10px;
+  }
+
+  .menu ul li {
+    display: inline-block;
+    position: relative;
+  }
+
+  .menu ul li:hover ul.submenu  {
+    display: block;
+  }
+
