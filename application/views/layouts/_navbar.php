@@ -15,7 +15,7 @@
           <li class="nav-item active"><a href="#" class="nav-link dropdown-toggle" id="dropdown-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
             <ul class="submenu">
              <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('category') ?>">Kategori</a></li>
-             <li class="nav-item active"><a class="dropdown-item" href="/admin-product.html">Produk</a></li>
+             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('product') ?>">Produk</a></li>
              <li class="nav-item active"><a class="dropdown-item" href="/admin-order.html">Order</a></li>
              <li class="nav-item active"><a class="dropdown-item" href="/admin-users.html">Pengguna</a></li>
             </ul>
