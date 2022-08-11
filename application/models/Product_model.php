@@ -88,8 +88,6 @@ class Product_model extends MY_Model
 		}
 	}
 
-    
-
 }
 
 /* End of file Product_model.php */
