@@ -17,7 +17,7 @@
              <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('category') ?>">Kategori</a></li>
              <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('product') ?>">Produk</a></li>
              <li class="nav-item active"><a class="dropdown-item" href="/admin-order.html">Order</a></li>
-             <li class="nav-item active"><a class="dropdown-item" href="/admin-users.html">Pengguna</a></li>
+             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('user') ?>">Pengguna</a></li>
             </ul>
          </li>
         </ul>
