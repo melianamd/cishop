@@ -32,11 +32,11 @@
                         <div class="form-group">
                             <label for="">Ada Stock?</label><br>
                             <div class="form-check form-check-inline">
-                                <?= form_radio(['name' => 'is_available', 'value' => 1, 'checked' => $input->is_available == 1 ? true : false, 'form-check-input']) ?>
+                                <?= form_radio(['name' => 'is_available', 'value' => '1', 'checked' => $input->is_available == 1 ? true : false, 'form-check-input']) ?>
                                 <label for="" class="form-check-label">Tersedia</label>
                             </div>
                             <div class="form-check form-check-inline">
-                            <?= form_radio(['name' => 'is_available', 'value' => 0, 'checked' => $input->is_available == 0 ? true : false, 'form-check-input'])?>
+                            <?= form_radio(['name' => 'is_available', 'value' => '0', 'checked' => $input->is_available == 0 ? true : false, 'form-check-input'])?>
                                 <label for="" class="form-check-label">Kosong</label>
                             </div>
                         </div>

@@ -24,6 +24,11 @@ class User_model extends MY_Model {
                 'rules'     => 'trim|required'
             ],
             [
+                'field'     => 'email',
+                'label'     => 'Email',
+                'rules'     => 'trim|required|valid_email|callback_unique_email'
+            ],
+            [
                 'field'     => 'role',
                 'label'     => 'Role',
                 'rules'     => 'trim|required'
