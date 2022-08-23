@@ -23,7 +23,7 @@
         return $query;
     }
 
-    function getChart()
+    function getCart()
     {
         $CI =& get_instance();
         $userId = $CI->session->userdata('id');
