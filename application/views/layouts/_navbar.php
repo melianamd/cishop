@@ -41,7 +41,7 @@
         <ul class="navbar-nav me-auto">
           <li class="nav-item active"><a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('name') ?></a>
             <ul class="submenu">
-             <li class="nav-item active"><a class="dropdown-item" href="/profil.html">Profil</a></li>
+             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/profile') ?>">Profil</a></li>
              <li class="nav-item active"><a class="dropdown-item" href="/orders.html">Order</a></li>
              <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/logout') ?>">Logout</a></li>
             </ul>
