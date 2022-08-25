@@ -38,8 +38,9 @@
                                 </td>
                                 <td class="text-center">Rp<?= number_format ($row->subtotal, 0, ',' , '.') ?> ,-</td>
                                 <td>
-                                    <form action="">
-                                        <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                                    <form action="<?= base_url("cart/delete/$row->id") ?>" method="POST">
+                                    <input type="hidden" name="id" value="<?= $row->id ?>">
+                                        <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah yakin ingin menghapus?')"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -53,7 +54,7 @@
                     </table>
                 </div>
                 <div class="card-footer">
-                    <a href="/checkout.html" class="btn btn-success float-end">Pembayaran <i class="fas fa-angle-right"></i></a>
+                    <a href="<?= base_url('/checkout') ?>" class="btn btn-success float-end">Pembayaran <i class="fas fa-angle-right"></i></a>
                     <a href="<?=  base_url('/')?>" class="btn btn-warning text-white"><i class="fas fa-angle-left"></i> Kembali Belanja</a>
                 </div>
             </div>
