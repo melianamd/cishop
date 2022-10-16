@@ -1,8 +1,9 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login_model extends MY_Model {
+class Login_model extends MY_Model
+{
 
     protected $table = 'user';
 
@@ -18,15 +19,15 @@ class Login_model extends MY_Model {
     {
         $validationRules = [
             [
-            'field'     => 'email',
-            'label'     => 'E-mail',
-            'rules'     => 'trim|required|valid_email'
+                'field'     => 'email',
+                'label'     => 'E-mail',
+                'rules'     => 'trim|required|valid_email'
             ],
             [
                 'field'     => 'password',
                 'label'     => 'Password',
                 'rules'     => 'required'
-            ] 
+            ]
         ];
 
         return $validationRules;
@@ -34,11 +35,9 @@ class Login_model extends MY_Model {
 
     public function run($input)
     {
-        $query = $this->where('email', strtolower($input->email))
-                      ->where('is_active', 1)
-                      ->first();
+        $query = $this->where('email', strtolower($input->email))->where('is_active', 1)->first();
 
-        if (!empty($query) && hashEncryptVerify($input->password, $query->password)){
+        if (!empty($query) && hashEncryptVerify($input->password, $query->password)) {
             $sess_data = [
                 'id'        => $query->id,
                 'name'      => $query->name,
@@ -52,7 +51,6 @@ class Login_model extends MY_Model {
 
         return false;
     }
-
 }
 
 /* End of file ModelName.php */

@@ -1,17 +1,17 @@
 <?php
 
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Myorder_model extends MY_Model {
+class Myorder_model extends MY_Model 
+{
 
 	public $table = 'orders';
 
 	public function getDefaultValues()
 	{
 		return [
-			'id_order' 			=> '',
-			'account_name' 		=> '',
+			'id_order'			 => '',
+			'account_name'		=> '',
 			'account_number'	=> '',
 			'nominal'			=> '',
 			'note'				=> '',
@@ -19,28 +19,28 @@ class Myorder_model extends MY_Model {
 		];
 	}
 
-	public function getValidationValues()
+	public function getValidationRules()
 	{
 		$validationRules = [
 			[
-			'field' 			=> 'account_name',
-			'label'				=> 'Nama Pemilik',
-			'rules'				=> 'trim|required'
+				'field' => 'account_name',
+				'label'	=> 'Nama Pemilik',
+				'rules'	=> 'trim|required'
 			],
 			[
-			'field' 			=> 'account_number',
-			'label'				=> 'No. Rekening',
-			'rules'				=> 'trim|required|max_length[50]'
+				'field' => 'account_number',
+				'label'	=> 'No. Rekening',
+				'rules'	=> 'trim|required|max_length[50]'
 			],
 			[
-			'field' 			=> 'nominal',
-			'label'				=> 'Nominal',
-			'rules'				=> 'trim|required|numeric'
+				'field' => 'nominal',
+				'label'	=> 'Nominal',
+				'rules'	=> 'trim|required|numeric'
 			],
 			[
-			'field' 			=> 'image',
-			'label'				=> 'Bukti Transfer',
-			'rules'				=> 'callback_image_required'
+				'field' => 'image',
+				'label'	=> 'Bukti Transfer',
+				'rules'	=> 'callback_image_required'
 			],
 		];
 

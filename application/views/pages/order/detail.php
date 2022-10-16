@@ -1,12 +1,10 @@
 <main class="container">
     <?php $this->load->view('layouts/_alert'); ?>
     <div class="row">
-        <div class="col-md-3">
-            <?php $this->load->view('layouts/_menu'); ?>
-        </div>
-        
-        <div class="col-md-9">
-            <div class="card">
+        <div class="col-md-10 mx-auto">
+           <div class="row-mb-3">
+            <div class="col-md-12">
+                <div class="card">
                 <div class="card-header">
                     Detail Orders #<?= $order->invoice ?>
                     <div class="float-end">
@@ -45,13 +43,28 @@
                         </tbody>
                     </table>
                 </div>
-                <?php if ($order->status == 'waiting') : ?>
-                <div class="card-footer">
-                    <a href="<?= base_url("/myorder/confirm/$order->invoice") ?>" class="btn btn-success">Konfirmasi Pembayaran</a>
+                    <div class="card-footer">
+                        <form action="<?= base_url("order/update/$order->id") ?>" method="POST">
+                            <div class="input-group">
+                                <select name="status" id="" class="form-control">
+                                    <option value="waiting" <?= $order->status == 'waiting' ? 'selected' : '' ?>>Menunggu Pembayaran</option>
+                                    <option value="paid" <?= $order->status == 'paid' ? 'selected' : '' ?>>Dibayar</option>
+                                    <option value="delivered" <?= $order->status == 'delivered' ? 'selected' : '' ?>>Dikirim</option>
+                                    <option value="cancel" <?= $order->status == 'cancel' ? 'selected' : '' ?>>Dibatalkan</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Simpan</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <?php endif ?>
             </div>
-            <?php if (isset($order_confirm)) : ?>
+
+            
+           </div><br>
+
+           <?php if (isset($order_confirm)) : ?>
 			<div class="row mb-3">
 				<div class="col-md-8">
 					<div class="card">
@@ -71,8 +84,6 @@
 				</div>
 			</div>
 			<?php endif ?>
-           
         </div>
     </div>
-  
 </main>
