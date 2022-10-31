@@ -51,6 +51,6 @@ class Login_model extends MY_Model
 
         return false;
     }
-}
+} 
 
 /* End of file ModelName.php */

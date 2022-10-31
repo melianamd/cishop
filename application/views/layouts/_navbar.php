@@ -1,58 +1,80 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white py-3">
   <div class="container">
-    <a class="navbar-brand" href="<?= base_url('') ?>">Thrift Bymelys</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="<?= base_url('') ?>">Home<span class="sr-only">(current)</span></a>
+    <a class="navbar-brand w-8" href="#" data-config-id="brand">
+      <img src="<?= base_url('') ?>images/logo2.jpg" width="150" alt="" class="mb-2">
+    </a>
+
+
+    <div class="menu collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation" aria-labelledby="dropdown-2">
+      <ul class="navbar-nav navbar-nav-hover ms-auto">
+        <li class="nav-item mx-2">
+          <a href="<?= base_url('') ?>" class="nav-link ps-2 cursor-pointer">
+            Home
+          </a>
         </li>
-        
-    <div class="menu" aria-labelledby="dropdown-1">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item active"><a href="#" class="nav-link dropdown-toggle" id="dropdown-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
-            <ul class="submenu">
-             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('category') ?>">Kategori</a></li>
-             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('product') ?>">Produk</a></li>
-             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("order") ?>">Order</a></li>
-             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('user') ?>">Pengguna</a></li>
+        <li class="nav-item active"><a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategori</a>
+          <ul class="submenu">
+            <?php foreach (getCategories() as $category) : ?>
+              <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/shop/category/$category->slug") ?>"><?= $category->title ?></a></li>
+            <?php endforeach ?>
+          </ul>
+        </li>
+        <li class="nav-item mx-2 nav-item">
+          <a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Urutkan Harga</a>
+          <ul class="submenu">
+            <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/shop/sortby/asc") ?>">Termurah</a></li>
+            <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/shop/sortby/desc") ?>">Termahal</a></li>
+          </ul>
+        </li>
+        <li class="nav-item mx-2">
+          <a href="javascript:void(0);" class="nav-link ps-2 cursor-pointer">
+            About
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a href="javascript:void(0);" class="nav-link ps-2 cursor-pointer">
+            Contact Us
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <form action="<?= base_url("/shop/search") ?>" method="POST">
+          <div class="input-group mt-2">
+            <input type="text" class="form-control mb-1 mt-1" name="keyword" placeholder="Cari" style=" width: 150px; height: 37px;">
+            <div class="input-group-append">
+              <button class="btn bg-gradient-dark mb-1 mt-1" type="submit" style="height:37px ;">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <li class="nav-item mx-2  mt-2">
+          <a href="<?= base_url('cart') ?>" class="nav-link ps-2 cursor-pointer">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i> Cart (<?= getCart(); ?>)
+          </a>
+        </li>
+
+        <?php if (!$this->session->userdata('is_login')) : ?>
+          <li class="nav-item ms-2  mt-2">
+            <a href="<?= base_url('/login') ?>" class="btn bg-gradient-dark mb-0" style="height: 37px;">
+              Login
+            </a>
+          </li>
+        <?php else : ?>
+          <div class="menu mx-2  mt-2" aria-labelledby="dropdown-2">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item active mb-3"><a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('name') ?></a>
+                <ul class="submenu">
+                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/profile') ?>">Profil</a></li>
+                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/myorder") ?>">Order</a></li>
+                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/logout') ?>">Logout</a></li>
+                </ul>
+              </li>
+            <?php endif ?>
             </ul>
-         </li>
-        </ul>
-    </div>
-    </ul>
-      
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a href="<?= base_url('cart') ?>" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart (<?= getCart(); ?>)</a>
-      </li>
-      <?php if (!$this->session->userdata('is_login')) : ?>
-      <li class="nav-item">
-        <a href="<?= base_url('/login') ?>" class="nav-link">Login</a>
-      </li>
-
-      <li class="nav-item">
-        <a href="<?= base_url('/register') ?>" class="nav-link">Register</a>
-      </li>
-      <?php else : ?>
-      <div class="menu" aria-labelledby="dropdown-2">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item active"><a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('name') ?></a>
-            <ul class="submenu">
-             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/profile') ?>">Profil</a></li>
-             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/myorder") ?>">Order</a></li>
-             <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/logout') ?>">Logout</a></li>
-            </ul>
-         </li>
-         <?php endif ?>
-        </ul>
-    </div>
-
-
-    </ul>
-
+          </div>
+      </ul>
     </div>
   </div>
 </nav>

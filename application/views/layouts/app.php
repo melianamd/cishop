@@ -9,7 +9,9 @@
   <title><?= isset($title) ? $title : 'CIShop' ?> CodeIgniter E-commerce</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbar-fixed/">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
 
   <!-- Bootstrap core CSS -->
@@ -18,6 +20,8 @@
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/fonts/icomoon/style.css">
   <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css"> <!-- tambahan -->
+  <link rel="stylesheet" href="/assets/css/loopple/loopple.css"> <!-- tambahan -->
 
 
   <!-- Font Awesome CSS -->
@@ -36,6 +40,7 @@
 
   <!-- Custom styles for this template -->
   <link href="/assets/css/app.css" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -47,6 +52,10 @@
   <!-- Content -->
   <?php $this->load->view($page); ?>
   <!-- End Content -->
+
+  <!-- Footer -->
+  <?php $this->load->view('layouts/_footer'); ?>
+  <!-- End Footer -->
 
 
   <script src="/assets/libs/jquery/jquery-3.6.0.min.js"></script>

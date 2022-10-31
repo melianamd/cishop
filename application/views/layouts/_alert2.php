@@ -24,9 +24,19 @@ if ($warning) {
 
 <?php if ($success || $error || $warning) : ?>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert <?= $alert_status ?> alert-dismissible fade show" role="alert">
+                <strong><?= $status ?></strong> <?= $message ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        swal("<?= $status ?>", "<?= $message ?>");
+        swal("<?= $alert_status ?>", "<?= $status ?>", "<?= $message ?>");
     </script>
 
 
