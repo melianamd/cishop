@@ -23,11 +23,7 @@ if ($warning) {
 ?>
 
 <?php if ($success || $error || $warning) : ?>
-
-
     <script>
         swal("<?= $status ?>", "<?= $message ?>");
     </script>
-
-
 <?php endif ?>
