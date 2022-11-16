@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cart extends MY_Controller {
 
-    private $id;
+    private $id; 
 
 	public function __construct()
 	{

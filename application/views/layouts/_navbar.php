@@ -27,12 +27,12 @@
           </ul>
         </li>
         <li class="nav-item mx-2">
-          <a href="javascript:void(0);" class="nav-link ps-2 cursor-pointer">
+          <a href="<?= base_url('/about') ?>" class="nav-link ps-2 cursor-pointer">
             About
           </a>
         </li>
         <li class="nav-item mx-2">
-          <a href="javascript:void(0);" class="nav-link ps-2 cursor-pointer">
+          <a href="<?= base_url('/contact') ?>" class="nav-link ps-2 cursor-pointer">
             Contact Us
           </a>
         </li>

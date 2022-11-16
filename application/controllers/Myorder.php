@@ -15,7 +15,7 @@ class Myorder extends MY_Controller
 		if (! $is_login) {
 			redirect(base_url());
 			return;
-		}
+		} 
 	}
 
 	public function index()

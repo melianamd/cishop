@@ -84,10 +84,17 @@
                 <div class="d-flex align-items-center mb-3">
                   <h5 class="mb-0 font-weight-bolder"><strong>Rp<?= number_format($row->price, 0, ',', '.') ?> ,- </strong></h5>
                 </div>
+
                 <form action="<?= base_url("/cart/add") ?>" method="POST">
                   <input type="hidden" name="id_product" value="<?= $row->id ?>">
-                  <a href="<?= base_url("/shop/category/$row->category_slug") ?>" class="btn btn-outline-dark mb-0">Add to cart</a>
+                  <div class="input-group">
+                    <input type="number" name="qty" value="1" class="form-control mb-1 mt-1">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-dark mb-1 mt-1">Add to Cart</button>
+                    </div>
+                  </div>
                 </form>
+
               </div>
             </div> <!-- div card-->
           </div>
@@ -96,7 +103,7 @@
     </div>
 
     <div class="col-12 mt-5 text-center">
-      <a href="javascript" class="btn bg-gradient-dark">View All</a>
+      <a href="<?= base_url("/allproduct") ?>" class="btn bg-gradient-dark">View All</a>
     </div>
     </div>
     </div>

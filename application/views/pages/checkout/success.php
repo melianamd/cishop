@@ -1,7 +1,7 @@
 <main class="container">
     <?php $this->load->view('/layouts/_alert') ?>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mb-5 mt-5">
             <div class="card">
                 <div class="card-header">
                     Checkout Berhasil
@@ -21,5 +21,5 @@
             </div>
         </div>
     </div>
-  
+
 </main>
