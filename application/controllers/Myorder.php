@@ -18,7 +18,7 @@ class Myorder extends MY_Controller
 		} 
 	}
 
-	public function index()
+	public function index() 
 	{
 		$data['title']		= 'Daftar Order';
 		$data['content']	= $this->myorder->where('id_user', $this->id)

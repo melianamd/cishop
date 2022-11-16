@@ -103,7 +103,7 @@
     </div>
 
     <div class="col-12 mt-5 text-center">
-      <a href="<?= base_url("/allproduct") ?>" class="btn bg-gradient-dark">View All</a>
+      <a href="<?= base_url("/product/viewall") ?>" class="btn bg-gradient-dark">View All</a>
     </div>
     </div>
     </div>
@@ -113,5 +113,5 @@
   </section>
 
 
-  </div>
+  </div> 
 </main>

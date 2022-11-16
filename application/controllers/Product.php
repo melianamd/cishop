@@ -1,34 +1,49 @@
 <?php
 
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Product extends MY_Controller {
+class Product extends MY_Controller
+{
 
-    
-    public function __construct()
-    {
-        parent::__construct();
-        $role = $this->session->userdata('role');
-        if ($role != 'admin'){
-            redirect(base_url('/'));
-            return;
-        } 
-    }
 
-    public function index($page = null)
-	{ 
+	public function __construct()
+	{
+		parent::__construct();
+		$role = $this->session->userdata('role');
+		if ($role != 'admin') {
+			redirect(base_url('/'));
+			return;
+		}
+	}
+
+	public function index($page = null)
+	{
 		$data['title']		= 'Admin: Produk';
 		$data['content']	= $this->product->select([
-													'product.id', 'product.title AS product_title', 'product.image', 
-													'product.price', 'product.is_available',
-													'category.title AS category_title'
-												])->join('category')->paginate($page)->get();
+			'product.id', 'product.title AS product_title', 'product.image',
+			'product.price', 'product.is_available',
+			'category.title AS category_title'
+		])->join('category')->paginate($page)->get();
 		$data['total_rows']	= $this->product->count();
 		$data['pagination']	= $this->product->makePagination(
-			base_url('product'), 2, $data['total_rows']
+			base_url('product'),
+			2,
+			$data['total_rows']
 		);
 		$data['page']		= 'pages/product/index';
+
+		$this->view($data);
+	}
+
+	public function viewall($page = null)
+	{
+		$data['title']		= 'Semua Produk';
+		$data['content']	= $this->product->select([
+			'product.id', 'product.title AS product_title', 'product.image',
+			'product.price', 'product.is_available'
+		])->get();
+		$data['page']		= 'pages/product/viewall';
 
 		$this->view($data);
 	}
@@ -44,12 +59,12 @@ class Product extends MY_Controller {
 		$keyword	= $this->session->userdata('keyword');
 		$data['title']		= 'Admin: Produk';
 		$data['content']	= $this->product->select(
-				[
-					'product.id', 'product.title AS product_title', 'product.image', 
-					'product.price', 'product.is_available',
-					'category.title AS category_title'
-				]
-			)
+			[
+				'product.id', 'product.title AS product_title', 'product.image',
+				'product.price', 'product.is_available',
+				'category.title AS category_title'
+			]
+		)
 			->join('category')
 			->like('product.title', $keyword)
 			->orLike('description', $keyword)
@@ -57,10 +72,12 @@ class Product extends MY_Controller {
 			->get();
 		$data['total_rows']	= $this->product->like('product.title', $keyword)->orLike('description', $keyword)->count();
 		$data['pagination']	= $this->product->makePagination(
-			base_url('product/search'), 3, $data['total_rows']
+			base_url('product/search'),
+			3,
+			$data['total_rows']
 		);
 		$data['page']		= 'pages/product/index';
-		
+
 		$this->view($data);
 	}
 
@@ -111,14 +128,14 @@ class Product extends MY_Controller {
 	{
 		$data['content'] = $this->product->where('id', $id)->first();
 
-		if (!$data['content']){
+		if (!$data['content']) {
 			$this->session->set_flashdata('warning', 'Maaf,data tidak dapat ditemukan');
 			redirect(base_url('product'));
 		}
 
-		if (!$_POST){
+		if (!$_POST) {
 			$data['input'] = $data['content'];
-		}else{
+		} else {
 			$data['input'] = (object) $this->input->post(null, true);
 		}
 
@@ -126,7 +143,7 @@ class Product extends MY_Controller {
 			$imageName	= url_title($data['input']->title, '-', true) . '-' . date('YmdHis');
 			$upload		= $this->product->uploadImage('image', $imageName);
 			if ($upload) {
-				if ($data['content']->image !== ''){
+				if ($data['content']->image !== '') {
 					$this->product->deleteImage($data['content']->image);
 				}
 				$data['input']->image	= $upload['file_name'];
@@ -177,7 +194,7 @@ class Product extends MY_Controller {
 	}
 
 
-    public function unique_slug()
+	public function unique_slug()
 	{
 		$slug		= $this->input->post('slug');
 		$id			= $this->input->post('id');
@@ -194,12 +211,6 @@ class Product extends MY_Controller {
 
 		return true;
 	}
-
-    
-
 }
 
 /* End of file Product.php */
-
-
-
