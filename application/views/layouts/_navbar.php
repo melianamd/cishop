@@ -61,20 +61,39 @@
               Login
             </a>
           </li>
-        <?php else : ?>
+
+        <?php elseif ($this->session->userdata('is_login') && $this->session->userdata('role') == 'admin') : ?>
+
           <div class="menu mx-2  mt-2" aria-labelledby="dropdown-2">
             <ul class="navbar-nav me-auto">
               <li class="nav-item active mb-3"><a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('name') ?></a>
                 <ul class="submenu">
                   <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/profile') ?>">Profil</a></li>
-                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/myorder") ?>">Order</a></li>
+                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/myorder") ?>">My Order</a></li>
+                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/category") ?>">Manage Kategori</a></li>
+                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/product") ?>">Manage Produk</a></li>
+                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/order") ?>">Manage Order</a></li>
+                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/user") ?>">Manage User</a></li>
                   <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/logout') ?>">Logout</a></li>
                 </ul>
               </li>
-            <?php endif ?>
+
+            <?php else : ?>
+              <div class="menu mx-2  mt-2" aria-labelledby="dropdown-2">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item active mb-3"><a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('name') ?></a>
+                    <ul class="submenu">
+                      <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/profile') ?>">Profil</a></li>
+                      <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/myorder") ?>">My Order</a></li>
+                      <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/logout') ?>">Logout</a></li>
+                    </ul>
+                  </li>
+                <?php endif ?>
+
+
+                </ul>
+              </div>
             </ul>
           </div>
-      </ul>
     </div>
-  </div>
 </nav>
