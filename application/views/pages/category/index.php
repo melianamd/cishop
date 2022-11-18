@@ -3,7 +3,7 @@
 		<div class="col-md-12 mb-5 mt-5">
 			<div class="card mb-3">
 				<div class="card-header">
-					<span>Kategori</span>
+					<span>Manage Kategori</span>
 
 					<div class="float-end">
 						<?= form_open(base_url('category/search'), ['method' => 'POST']) ?>
