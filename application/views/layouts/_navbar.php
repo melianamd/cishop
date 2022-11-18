@@ -39,6 +39,7 @@
       </ul>
 
       <ul class="navbar-nav ms-auto">
+        <!--
         <form action="<?= base_url("/shop/search") ?>" method="POST">
           <div class="input-group mt-2">
             <input type="text" class="form-control mb-1 mt-1" name="keyword" placeholder="Cari" style=" width: 150px; height: 37px;">
@@ -48,7 +49,7 @@
               </button>
             </div>
           </div>
-        </form>
+        </form> -->
         <li class="nav-item mx-2  mt-2">
           <a href="<?= base_url('cart') ?>" class="nav-link ps-2 cursor-pointer">
             <i class="fa fa-shopping-bag" aria-hidden="true"></i> Cart (<?= getCart(); ?>)

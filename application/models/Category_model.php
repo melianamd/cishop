@@ -1,11 +1,12 @@
 <?php
 
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Category_model extends MY_Model {
+class Category_model extends MY_Model
+{
 
-    protected $perPage = 5; 
+    protected $perPage = 5;
 
     public function getDefaultValues()
     {
@@ -20,19 +21,18 @@ class Category_model extends MY_Model {
     {
         $validationRules = [
             [
-            'field'     => 'slug',
-            'label'     => 'Slug',
-            'rules'     => 'trim|required|callback_unique_slug'
+                'field'     => 'slug',
+                'label'     => 'Slug',
+                'rules'     => 'trim|required|callback_unique_slug'
             ],
             [
                 'field'     => 'title',
                 'label'     => 'Kategori',
                 'rules'     => 'trim|required|callback_unique_slug'
             ],
-    ];
-    return $validationRules;
+        ];
+        return $validationRules;
     }
-
 }
 
 /* End of file Category_model.php */

@@ -1,8 +1,8 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class MY_Model extends CI_Model 
+class MY_Model extends CI_Model
 {
 
 	protected $table	= '';
@@ -11,7 +11,7 @@ class MY_Model extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		if (!$this->table) {
 			$this->table = strtolower(
 				str_replace('_model', '', get_class($this))
@@ -31,7 +31,8 @@ class MY_Model extends CI_Model
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_error_delimiters(
-			'<small class="form-text text-danger">', '</small>'
+			'<small class="form-text text-danger">',
+			'</small>'
 		);
 		$validationRules = $this->getValidationRules();
 
@@ -171,7 +172,7 @@ class MY_Model extends CI_Model
 	{
 		return $this->db->update($this->table, $data);
 	}
-	
+
 	/**
 	 * Menghapus suatu data dari hasil query dan kondisi
 	 * 
@@ -234,7 +235,7 @@ class MY_Model extends CI_Model
 			'per_page'			=> $this->perPage,
 			'total_rows'		=> $totalRows,
 			'use_page_numbers'	=> true,
-			
+
 			'full_tag_open'		=> '<ul class="pagination">',
 			'full_tag_close'	=> '</ul>',
 			'attributes'		=> ['class' => 'page-link'],
