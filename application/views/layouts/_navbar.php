@@ -69,8 +69,6 @@
             <ul class="navbar-nav me-auto">
               <li class="nav-item active mb-3"><a href="#" class="nav-link dropdown-toggle" id="dropdown-2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $this->session->userdata('name') ?></a>
                 <ul class="submenu">
-                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url('/profile') ?>">Profil</a></li>
-                  <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/myorder") ?>">My Order</a></li>
                   <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/category") ?>">Manage Kategori</a></li>
                   <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/product") ?>">Manage Produk</a></li>
                   <li class="nav-item active"><a class="dropdown-item" href="<?= base_url("/order") ?>">Manage Order</a></li>

@@ -19,7 +19,7 @@
                         <?= form_error('slug') ?>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn bg-gradient-dark">Simpan</button>
                     <?= form_close() ?>
                 </div> <br />
 
